@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  @apply bg-cream text-slate font-body antialiased;
+}
+
+::selection {
+  @apply bg-sage-light text-slate;
+}
+
+/* ── Scroll-reveal (driven by components/Reveal.tsx) ─────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Inlined brand SVGs (components/BrandSvg.tsx) ────────────── */
+/* CSS wins over the SVGs' font-family presentation attribute, so the
+   baked-in "Poppins" text renders in the brand heading font instead. */
+.brand-svg text {
+  font-family: var(--font-quicksand), ui-sans-serif, sans-serif;
+}
+
+/* ── FAQ accordion ───────────────────────────────────────────── */
+.faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.faq-answer > div {
+  overflow: hidden;
+}
+
+.faq-item[data-open="true"] .faq-answer {
+  grid-template-rows: 1fr;
+}
+
+.faq-item[data-open="true"] .faq-chevron {
+  transform: rotate(180deg);
+}
+
+.faq-chevron {
+  transition: transform 0.3s ease;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────── */
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-terracotta px-8 py-4 font-heading text-base font-semibold text-white shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:bg-terracotta-dark hover:shadow-lift focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-terracotta-dark active:translate-y-0;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-sage bg-transparent px-8 py-[14px] font-heading text-base font-semibold text-sage-darker transition-all duration-300 hover:-translate-y-0.5 hover:bg-sage hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage active:translate-y-0;
+}
