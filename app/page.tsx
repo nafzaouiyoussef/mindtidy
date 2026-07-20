@@ -1,14 +1,20 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import ProblemSolution from "@/components/ProblemSolution";
+import WhyDifferent from "@/components/WhyDifferent";
 import WhatsInside from "@/components/WhatsInside";
 import Testimonials from "@/components/Testimonials";
-import Bundle from "@/components/Bundle";
+import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
-import { FAQ_ITEMS } from "@/lib/faq";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
-import { SITE_URL, SITE_NAME, PRODUCT, PAYHIP_URL } from "@/lib/config";
+import { FAQ_ITEMS } from "@/content/faq";
+import {
+  SITE_URL,
+  SITE_NAME,
+  PRODUCT,
+  TIERS,
+  PAYHIP_URL_BUNDLE,
+} from "@/lib/config";
 
 /** Product + FAQ structured data for rich search results. */
 function StructuredData() {
@@ -18,15 +24,15 @@ function StructuredData() {
       "@type": "Product",
       name: PRODUCT.name,
       description:
-        "A calm, 10-page printable planner designed for ADHD adults. Brain dump, three daily must-dos, energy check-ins, and gentle habit tracking. Instant digital download for print or iPad.",
+        "ADHD planner printable + digital stickers bundle: a 21-page undated ADHD planner (US Letter + A4) with Daily Big 3, time blocks, Shrink-the-Task sheets and a Dopamine Menu, plus 63 transparent-PNG digital stickers, a 6-page GoodNotes sticker book and a 2-page installation guide for GoodNotes, Notability and other PDF annotators. Instant digital download.",
       brand: { "@type": "Brand", name: SITE_NAME },
       url: SITE_URL,
       offers: {
         "@type": "Offer",
-        price: PRODUCT.price.toFixed(2),
+        price: TIERS.bundle.price.toFixed(2),
         priceCurrency: PRODUCT.currency,
         availability: "https://schema.org/InStock",
-        url: PAYHIP_URL,
+        url: PAYHIP_URL_BUNDLE,
       },
     },
     {
@@ -55,10 +61,10 @@ export default function HomePage() {
       <Header />
       <main>
         <Hero />
-        <ProblemSolution />
+        <WhyDifferent />
         <WhatsInside />
         <Testimonials />
-        <Bundle />
+        <Pricing />
         <FAQ />
         <FinalCTA />
       </main>

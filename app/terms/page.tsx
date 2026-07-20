@@ -57,7 +57,7 @@ export default function TermsPage() {
         <p>
           Payments are processed by Payhip. Prices are shown at checkout and
           may change over time. Refunds are governed by our{" "}
-          <Link href="/refunds" className="text-sage-darker underline">
+          <Link href="/refunds">
             Refund Policy
           </Link>
           .
@@ -94,7 +94,7 @@ export default function TermsPage() {
       <LegalSection heading="Contact">
         <p>
           Questions? Email{" "}
-          <a href={`mailto:${CONTACT_EMAIL}`} className="text-sage-darker underline">
+          <a href={`mailto:${CONTACT_EMAIL}`}>
             {CONTACT_EMAIL}
           </a>
           .
