@@ -29,7 +29,7 @@ export default function RefundsPage() {
         <ul>
           <li>
             Email{" "}
-            <a href={`mailto:${CONTACT_EMAIL}`}>
+            <a href={`mailto:${CONTACT_EMAIL}`} className="text-sage-darker underline">
               {CONTACT_EMAIL}
             </a>{" "}
             from the address you used at checkout.

@@ -9,7 +9,6 @@ const NAV_LINKS = [
   { href: "#why", label: "Why it works" },
   { href: "#inside", label: "What's inside" },
   { href: "#reviews", label: "Reviews" },
-  { href: "#pricing", label: "Pricing" },
   { href: "#faq", label: "FAQ" },
 ];
 
@@ -37,12 +36,12 @@ export default function Header() {
           <Logo />
         </Link>
 
-        <nav className="hidden items-center gap-7 md:flex" aria-label="Main">
+        <nav className="hidden items-center gap-8 md:flex" aria-label="Main">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="font-body text-sm font-semibold text-ink-soft transition-colors hover:text-ink"
+              className="font-heading text-sm font-semibold text-slate-light transition-colors hover:text-slate"
             >
               {link.label}
             </a>
@@ -52,7 +51,7 @@ export default function Header() {
 
         <button
           type="button"
-          className="rounded-full p-2 text-ink transition-colors hover:bg-blush md:hidden"
+          className="rounded-full p-2 text-slate transition-colors hover:bg-sage-lighter md:hidden"
           aria-expanded={menuOpen}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           onClick={() => setMenuOpen((v) => !v)}
@@ -79,7 +78,7 @@ export default function Header() {
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="rounded-2xl px-4 py-3 font-body font-semibold text-ink transition-colors hover:bg-blush"
+              className="rounded-xl px-4 py-3 font-heading font-semibold text-slate transition-colors hover:bg-sage-lighter"
             >
               {link.label}
             </a>

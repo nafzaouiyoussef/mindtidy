@@ -1,61 +1,58 @@
 import type { Metadata } from "next";
-import { Lora, Poppins } from "next/font/google";
+import { Quicksand, Inter } from "next/font/google";
 import "./globals.css";
-import { SITE_URL, SITE_NAME } from "@/lib/config";
+import { SITE_URL, SITE_NAME, PRODUCT } from "@/lib/config";
 
-const lora = Lora({
+const quicksand = Quicksand({
   subsets: ["latin"],
-  style: ["normal", "italic"],
-  variable: "--font-lora",
+  variable: "--font-quicksand",
   display: "swap",
 });
 
-const poppins = Poppins({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-poppins",
+  variable: "--font-inter",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — ADHD Planner Printable + Digital Stickers Bundle`,
+    default: `${SITE_NAME} — The ADHD-Friendly Planner That Finally Sticks`,
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "An undated 21-page ADHD planner built for how ADHD brains actually work, plus 63 digital stickers, a GoodNotes sticker book and an installation guide. Print at home or use on iPad — instant download.",
+    "A calm, printable planner designed for ADHD adults. Brain dump the chaos, pick three must-dos, and actually start. Instant digital download for print or iPad.",
   keywords: [
-    "ADHD planner printable",
-    "ADHD digital planner",
-    "GoodNotes ADHD planner",
-    "digital planner stickers",
-    "undated ADHD planner",
-    "ADHD planner bundle",
-    "Notability planner",
+    "ADHD planner",
+    "ADHD daily planner printable",
+    "printable planner for ADHD adults",
+    "ADHD organization tools",
+    "digital planner download",
+    "brain dump template",
   ],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: `${SITE_NAME} — ADHD Planner Printable + Digital Stickers Bundle`,
+    title: `${SITE_NAME} — The ADHD-Friendly Planner That Finally Sticks`,
     description:
-      "21-page undated ADHD planner + 63 digital stickers + GoodNotes sticker book + installation guide. Built for how ADHD brains actually work.",
+      "Your brain has enough tabs open. Give every thought a home with a calm, printable planner made for ADHD adults.",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_NAME} — ADHD Planner + Digital Stickers Bundle`,
+    title: `${SITE_NAME} — The ADHD-Friendly Planner That Finally Sticks`,
     description:
-      "Undated 21-page ADHD planner + 63 digital stickers. Print at home or use in GoodNotes / Notability. Instant download.",
+      "A calm, printable planner designed for ADHD adults. Instant download for print or iPad.",
   },
   robots: {
     index: true,
     follow: true,
   },
   other: {
-    "theme-color": "#FBF7F0",
+    "theme-color": "#F7F3EC",
   },
 };
 
@@ -63,7 +60,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${lora.variable} ${poppins.variable}`}>
+    <html lang="en" className={`${quicksand.variable} ${inter.variable}`}>
       <body>{children}</body>
     </html>
   );

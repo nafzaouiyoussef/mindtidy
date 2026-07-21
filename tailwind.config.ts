@@ -4,49 +4,42 @@ const config: Config = {
   content: [
     "./app/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
-    "./content/**/*.{ts,tsx}",
   ],
   theme: {
     extend: {
       colors: {
-        cream: "#FBF7F0",
-        ink: {
-          DEFAULT: "#33302B",
-          soft: "#5C574E",
-          muted: "#8A8479",
+        sage: {
+          DEFAULT: "#8FA98F",
+          light: "#B5C7B5",
+          lighter: "#E4ECE4",
+          dark: "#6E8A6E",
+          darker: "#557055",
         },
-        coral: {
-          DEFAULT: "#E4664B",
-          dark: "#C94F35",
+        cream: {
+          DEFAULT: "#F7F3EC",
+          dark: "#EFE9DE",
         },
-        teal: {
-          DEFAULT: "#3E7C6F",
-          dark: "#2F6156",
+        slate: {
+          DEFAULT: "#3E4A45",
+          light: "#5C6B64",
+          muted: "#7A877F",
         },
-        mustard: {
-          DEFAULT: "#DE9E33",
-          dark: "#B87F1F",
+        terracotta: {
+          DEFAULT: "#D9A48F",
+          light: "#EAC8BA",
+          dark: "#C08265",
         },
-        lavender: {
-          DEFAULT: "#8B7BB5",
-          dark: "#6F5F9C",
-        },
-        // soft pastel tints for section backgrounds and chips
-        blush: "#F8E2DA",
-        mint: "#DFEAE4",
-        sand: "#F8ECD3",
-        lilac: "#EAE5F2",
       },
       fontFamily: {
-        heading: ["var(--font-lora)", "serif"],
-        body: ["var(--font-poppins)", "sans-serif"],
+        heading: ["var(--font-quicksand)", "sans-serif"],
+        body: ["var(--font-inter)", "sans-serif"],
       },
       borderRadius: {
         "4xl": "2rem",
       },
       boxShadow: {
-        soft: "0 4px 24px rgba(51, 48, 43, 0.08)",
-        lift: "0 12px 40px rgba(51, 48, 43, 0.14)",
+        soft: "0 4px 24px rgba(62, 74, 69, 0.08)",
+        lift: "0 12px 40px rgba(62, 74, 69, 0.14)",
       },
       keyframes: {
         float: {
@@ -56,6 +49,11 @@ const config: Config = {
         "fade-up": {
           from: { opacity: "0", transform: "translateY(16px)" },
           to: { opacity: "1", transform: "translateY(0)" },
+        },
+        "check-pop": {
+          "0%": { transform: "scale(0.8)" },
+          "60%": { transform: "scale(1.08)" },
+          "100%": { transform: "scale(1)" },
         },
       },
       animation: {

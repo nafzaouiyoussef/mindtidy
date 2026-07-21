@@ -8,11 +8,11 @@ html {
 }
 
 body {
-  @apply bg-cream text-ink font-body antialiased;
+  @apply bg-cream text-slate font-body antialiased;
 }
 
 ::selection {
-  @apply bg-blush text-ink;
+  @apply bg-sage-light text-slate;
 }
 
 /* ── Scroll-reveal (driven by components/Reveal.tsx) ─────────── */
@@ -49,6 +49,13 @@ body {
   }
 }
 
+/* ── Inlined brand SVGs (components/BrandSvg.tsx) ────────────── */
+/* CSS wins over the SVGs' font-family presentation attribute, so the
+   baked-in "Poppins" text renders in the brand heading font instead. */
+.brand-svg text {
+  font-family: var(--font-quicksand), ui-sans-serif, sans-serif;
+}
+
 /* ── FAQ accordion ───────────────────────────────────────────── */
 .faq-answer {
   display: grid;
@@ -72,16 +79,11 @@ body {
   transition: transform 0.3s ease;
 }
 
-/* ── Buttons (pill-shaped per brand) ─────────────────────────── */
+/* ── Buttons ─────────────────────────────────────────────────── */
 .btn-primary {
-  @apply inline-flex items-center justify-center gap-2 rounded-full bg-coral px-8 py-4 font-body text-base font-semibold text-white shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:bg-coral-dark hover:shadow-lift focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-coral-dark active:translate-y-0;
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-terracotta px-8 py-4 font-heading text-base font-semibold text-white shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:bg-terracotta-dark hover:shadow-lift focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-terracotta-dark active:translate-y-0;
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-teal bg-transparent px-8 py-[14px] font-body text-base font-semibold text-teal transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal active:translate-y-0;
-}
-
-/* ── Pill tag ────────────────────────────────────────────────── */
-.tag {
-  @apply inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-semibold;
+  @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-sage bg-transparent px-8 py-[14px] font-heading text-base font-semibold text-sage-darker transition-all duration-300 hover:-translate-y-0.5 hover:bg-sage hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage active:translate-y-0;
 }

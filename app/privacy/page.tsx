@@ -81,7 +81,7 @@ export default function PrivacyPage() {
       <LegalSection heading="Contact">
         <p>
           Questions about this policy? Email{" "}
-          <a href={`mailto:${CONTACT_EMAIL}`}>
+          <a href={`mailto:${CONTACT_EMAIL}`} className="text-sage-darker underline">
             {CONTACT_EMAIL}
           </a>
           .
