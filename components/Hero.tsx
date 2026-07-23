@@ -28,16 +28,24 @@ export default function Hero() {
 
           <Reveal delay={200}>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-slate-light lg:mx-0">
-              The {PRODUCT.name} is a printable planner made for ADHD adults —
-              not another rigid system to abandon by Thursday. Dump the chaos,
-              pick three things, and actually start.
+              Made for ADHD adults — not another rigid system to abandon by
+              Thursday. You get a{" "}
+              <strong className="font-semibold text-slate">
+                21-page undated ADHD planner
+              </strong>{" "}
+              plus{" "}
+              <strong className="font-semibold text-slate">
+                63 digital stickers, a GoodNotes sticker book, and an
+                installation guide
+              </strong>
+              . Dump the chaos, pick three things, and actually start.
             </p>
           </Reveal>
 
           <Reveal delay={300}>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
               <BuyButton>
-                Get the planner — ${PRODUCT.price}
+                Get the bundle — ${PRODUCT.price}
               </BuyButton>
               <a href="#inside" className="btn-secondary">
                 See what&apos;s inside
@@ -46,12 +54,29 @@ export default function Hero() {
           </Reveal>
 
           <Reveal delay={400}>
-            <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-muted lg:justify-start">
+            {/* Compatibility badges */}
+            <ul className="mt-6 flex flex-wrap items-center justify-center gap-2 lg:justify-start">
+              {["GoodNotes", "Notability", "Print at home", "iPad & tablet"].map(
+                (label) => (
+                  <li
+                    key={label}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-cream-dark bg-white px-3 py-1.5 text-xs font-semibold text-slate-light"
+                  >
+                    <CheckIcon />
+                    {label}
+                  </li>
+                )
+              )}
+            </ul>
+          </Reveal>
+
+          <Reveal delay={500}>
+            <ul className="mt-5 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-muted lg:justify-start">
               <li className="flex items-center gap-1.5">
                 <CheckIcon /> Instant download
               </li>
               <li className="flex items-center gap-1.5">
-                <CheckIcon /> Print or use on iPad
+                <CheckIcon /> Undated · reuse forever
               </li>
               <li className="flex items-center gap-1.5">
                 <CheckIcon /> 14-day guarantee

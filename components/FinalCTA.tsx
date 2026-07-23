@@ -31,7 +31,7 @@ export default function FinalCTA() {
 
           <div className="relative mt-9">
             <BuyButton className="!bg-white !text-sage-darker hover:!bg-cream">
-              Get the planner — ${PRODUCT.price}
+              Get the bundle — ${PRODUCT.price}
             </BuyButton>
           </div>
 

@@ -18,34 +18,35 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — The ADHD-Friendly Planner That Finally Sticks`,
+    default: `${SITE_NAME} — ADHD Planner Printable + Digital Stickers Bundle`,
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "A calm, printable planner designed for ADHD adults. Brain dump the chaos, pick three must-dos, and actually start. Instant digital download for print or iPad.",
+    "An undated 21-page ADHD planner made for how ADHD brains work, plus 63 digital stickers, a GoodNotes sticker book and an installation guide. Print at home or use on iPad — instant download.",
   keywords: [
-    "ADHD planner",
-    "ADHD daily planner printable",
-    "printable planner for ADHD adults",
-    "ADHD organization tools",
-    "digital planner download",
-    "brain dump template",
+    "ADHD planner printable",
+    "ADHD digital planner",
+    "GoodNotes ADHD planner",
+    "digital planner stickers",
+    "undated ADHD planner",
+    "ADHD planner bundle",
+    "Notability planner",
   ],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: `${SITE_NAME} — The ADHD-Friendly Planner That Finally Sticks`,
+    title: `${SITE_NAME} — ADHD Planner Printable + Digital Stickers Bundle`,
     description:
-      "Your brain has enough tabs open. Give every thought a home with a calm, printable planner made for ADHD adults.",
+      "21-page undated ADHD planner + 63 digital stickers + GoodNotes sticker book + installation guide. Built for how ADHD brains actually work.",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_NAME} — The ADHD-Friendly Planner That Finally Sticks`,
+    title: `${SITE_NAME} — ADHD Planner + Digital Stickers Bundle`,
     description:
-      "A calm, printable planner designed for ADHD adults. Instant download for print or iPad.",
+      "Undated 21-page ADHD planner + 63 digital stickers. Print at home or use in GoodNotes / Notability. Instant download.",
   },
   robots: {
     index: true,

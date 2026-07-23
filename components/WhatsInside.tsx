@@ -3,47 +3,79 @@ import BuyButton from "./BuyButton";
 import BrandSvg from "./BrandSvg";
 import { PRODUCT } from "@/lib/config";
 
-const FEATURES = [
+const PLANNER_PAGES = [
   {
-    emoji: "🧠",
-    title: "Daily Reset page",
-    body: "Brain dump, three must-dos, and an energy check — one calm page that takes two minutes to fill in.",
-  },
-  {
-    emoji: "📝",
-    title: "Brain Dump sheets",
-    body: "Unlimited overflow space for the 3 a.m. thoughts, the “don't forget!” list, and everything in between.",
+    emoji: "🎯",
+    title: "Daily Big 3",
+    body: "Three priorities, never twenty — each with a tiny-first-step line so starting stops being the hard part.",
   },
   {
     emoji: "⏱️",
-    title: "Time-blindness time blocker",
-    body: "A visual day map that makes time feel concrete — see where your hours actually go, without hourly-grid overwhelm.",
+    title: "Time Blocks",
+    body: "A visual day map with hyperfocus alarms, so time feels concrete instead of slipping away.",
   },
   {
-    emoji: "🍅",
-    title: "Focus sprint tracker",
-    body: "Simple sprint-and-break checkboxes for body-doubling with yourself. Start with just 10 minutes.",
+    emoji: "🔪",
+    title: "Shrink-the-Task",
+    body: "A breakdown sheet that chops a scary project into steps small enough to actually begin.",
+  },
+  {
+    emoji: "🍩",
+    title: "Dopamine Menu",
+    body: "Pre-planned pick-me-ups for stuck days, so “take a break” becomes an actual plan.",
+  },
+  {
+    emoji: "🧰",
+    title: "“Can't Get Started?” toolkit",
+    body: "Six go-to tactics for the 2 p.m. wall — written by someone who's been stuck there too.",
   },
   {
     emoji: "🌱",
-    title: "Gentle habit tracker",
-    body: "Track up to five habits with no streak-shaming. Missed a day? The page doesn't care. Just pick it back up.",
+    title: "Shame-free Habit Builder",
+    body: "Track habits with no streaks to break. Missed a day? The page doesn't care. Just pick it back up.",
   },
   {
-    emoji: "📥",
-    title: "Weekly Sunday Reset",
-    body: "A 10-minute weekly ritual page to empty your head, review the week, and set up the next one — gently.",
+    emoji: "🔄",
+    title: "10-Minute Weekly Reset",
+    body: "A short weekly ritual to empty your head, review the week, and set up the next one — gently.",
   },
   {
-    emoji: "💭",
-    title: "“Waiting on” + “Someday” lists",
-    body: "Park the ideas and loose ends somewhere safe, so your brain stops re-reminding you at the worst times.",
+    emoji: "🌙",
+    title: "Monthly Reflection",
+    body: "Look back kindly once a month: what worked, what didn't, and what to carry forward.",
   },
   {
-    emoji: "📱",
-    title: "Print & iPad versions",
-    body: "US Letter and A4 PDFs, plus a hyperlinked digital version for GoodNotes, Notability, and other PDF annotators.",
+    emoji: "🏆",
+    title: "Reward Bank",
+    body: "Bank the treats you're working toward, so your brain has a reason to finish the boring thing.",
   },
+  {
+    emoji: "🧠",
+    title: "Brain Dump",
+    body: "Unlimited overflow space for the 3 a.m. thoughts and the “don't forget!” list.",
+  },
+  {
+    emoji: "⏳",
+    title: "Waiting On",
+    body: "Park the loose ends you're waiting on, so your brain stops re-reminding you at the worst times.",
+  },
+  {
+    emoji: "💡",
+    title: "Idea Parking Lot",
+    body: "A safe home for every shiny idea — captured now, so you can get back to the task at hand.",
+  },
+];
+
+const STICKER_TYPES = [
+  "Action labels",
+  "Kind-words quotes",
+  "Checkboxes",
+  "Priority numbers",
+  "Energy batteries",
+  "Mood faces",
+  "Focus timers",
+  "Washi tape",
+  "Day tabs",
 ];
 
 export default function WhatsInside() {
@@ -55,12 +87,12 @@ export default function WhatsInside() {
             What&apos;s inside
           </p>
           <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-slate sm:text-4xl">
-            10 pages. Zero clutter. Everything on purpose.
+            Two parts. One calm system.
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-slate-light">
-            The {PRODUCT.name} includes every page below — designed with lots
-            of white space, because white space is where your brain gets to
-            breathe.
+            The {PRODUCT.name} pairs a 21-page undated planner with a 63-piece
+            digital sticker system — designed with lots of white space, because
+            white space is where your brain gets to breathe.
           </p>
         </Reveal>
 
@@ -72,8 +104,18 @@ export default function WhatsInside() {
           />
         </Reveal>
 
-        <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {FEATURES.map((feature, i) => (
+        {/* ── Part 1: The Planner ─────────────────────────────── */}
+        <Reveal className="mt-16 flex flex-col items-center gap-3 text-center sm:flex-row sm:justify-center sm:text-left">
+          <span className="inline-flex items-center gap-2 rounded-full bg-sage-lighter px-4 py-1.5 font-heading text-sm font-semibold text-sage-darker">
+            Part 1 · The Planner
+          </span>
+          <p className="text-sm font-medium text-slate-light">
+            21 pages · undated — start any day, reprint forever
+          </p>
+        </Reveal>
+
+        <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {PLANNER_PAGES.map((feature, i) => (
             <Reveal
               as="li"
               key={feature.title}
@@ -96,9 +138,46 @@ export default function WhatsInside() {
           ))}
         </ul>
 
+        {/* ── Part 2: The Sticker System ──────────────────────── */}
+        <Reveal className="mt-16 flex flex-col items-center gap-3 text-center sm:flex-row sm:justify-center sm:text-left">
+          <span className="inline-flex items-center gap-2 rounded-full bg-terracotta-light px-4 py-1.5 font-heading text-sm font-semibold text-terracotta-dark">
+            Part 2 · The Sticker System
+          </span>
+          <p className="text-sm font-medium text-slate-light">
+            63 transparent PNGs + GoodNotes sticker book + installation guide
+          </p>
+        </Reveal>
+
+        <Reveal delay={100} className="mx-auto mt-8 max-w-3xl rounded-3xl border border-cream-dark bg-cream p-8 text-center">
+          <p className="text-sm leading-relaxed text-slate-light">
+            Drag-and-drop stickers that do the writing for you:
+          </p>
+          <ul className="mt-4 flex flex-wrap justify-center gap-2">
+            {STICKER_TYPES.map((type) => (
+              <li
+                key={type}
+                className="rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-light shadow-soft"
+              >
+                {type}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-5 text-sm leading-relaxed text-slate-light">
+            Plus a <strong className="font-semibold text-slate">6-page
+            GoodNotes sticker book</strong> and a{" "}
+            <strong className="font-semibold text-slate">2-page
+            installation guide</strong> for GoodNotes and Notability. Peek at
+            the full grid{" "}
+            <a href="#stickers" className="font-semibold text-sage-darker underline decoration-sage-light underline-offset-2 hover:text-sage-dark">
+              just below
+            </a>
+            .
+          </p>
+        </Reveal>
+
         <Reveal className="mt-12 text-center">
           <BuyButton>
-            Get all 10 pages — ${PRODUCT.price}
+            Get the bundle — ${PRODUCT.price}
           </BuyButton>
         </Reveal>
       </div>

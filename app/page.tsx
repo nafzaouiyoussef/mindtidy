@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ProblemSolution from "@/components/ProblemSolution";
 import WhatsInside from "@/components/WhatsInside";
+import StickerShowcase from "@/components/StickerShowcase";
 import Testimonials from "@/components/Testimonials";
 import Bundle from "@/components/Bundle";
 import FAQ from "@/components/FAQ";
@@ -18,7 +19,7 @@ function StructuredData() {
       "@type": "Product",
       name: PRODUCT.name,
       description:
-        "A calm, 10-page printable planner designed for ADHD adults. Brain dump, three daily must-dos, energy check-ins, and gentle habit tracking. Instant digital download for print or iPad.",
+        "An ADHD planner printable + digital stickers bundle: a 21-page undated ADHD planner (US Letter + A4) with Daily Big 3, Time Blocks, Shrink-the-Task, a Dopamine Menu and a shame-free Habit Builder, plus 63 transparent-PNG digital stickers, a 6-page GoodNotes sticker book and an installation guide for GoodNotes and Notability. Instant digital download — print at home or use on iPad.",
       brand: { "@type": "Brand", name: SITE_NAME },
       url: SITE_URL,
       offers: {
@@ -57,6 +58,7 @@ export default function HomePage() {
         <Hero />
         <ProblemSolution />
         <WhatsInside />
+        <StickerShowcase />
         <Testimonials />
         <Bundle />
         <FAQ />
