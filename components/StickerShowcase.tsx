@@ -7,7 +7,7 @@ import { PRODUCT } from "@/lib/config";
  * Uses plain <img> for the placeholder PNGs (matching the review-photo
  * pattern in Testimonials). Drop real art into public/products/ later —
  * the filenames are stable: sticker-grid.png, sticker-book-cover.png,
- * ipad-goodnotes.png.
+ * planner-daily-page.png.
  */
 export default function StickerShowcase() {
   return (
@@ -52,12 +52,12 @@ export default function StickerShowcase() {
                     className="w-full rounded-3xl shadow-soft"
                   />
                   <img
-                    src="/products/ipad-goodnotes.png"
-                    alt="The MindTidy planner open in GoodNotes on an iPad with digital stickers applied"
+                    src="/products/planner-daily-page.png"
+                    alt="The Daily “Today” page from the MindTidy ADHD planner — Big 3, time anchors and an energy check, ready for stickers"
                     width={1200}
-                    height={900}
+                    height={1553}
                     loading="lazy"
-                    className="w-full self-center rounded-3xl shadow-soft"
+                    className="w-full self-start rounded-3xl shadow-soft"
                   />
                 </div>
                 <ul className="space-y-2.5">
