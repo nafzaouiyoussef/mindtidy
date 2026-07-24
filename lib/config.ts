@@ -30,7 +30,7 @@ export const CHECKOUT_URL =
 export const THANK_YOU_PATH = "/thank-you";
 
 // ── Whop embedded checkout (/checkout) ───────────────────────
-export const WHOP_PLAN_ID = "plan_4NxI8kuqbe6FS";
+export const WHOP_PLAN_ID = "plan_Mzpg2A0lB2xQe";
 
 /**
  * Whop's sandbox is a SEPARATE environment with its own plans — the
