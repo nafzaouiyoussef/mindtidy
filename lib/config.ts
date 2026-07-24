@@ -8,10 +8,6 @@
 // Complete Bundle checkout (live)
 export const PAYHIP_URL_BUNDLE = "https://payhip.com/b/g1mcR";
 
-// TODO: replace with the planner-only checkout when it exists.
-// Until then it points at the bundle checkout so the button always works.
-export const PAYHIP_URL_PLANNER = "https://payhip.com/b/g1mcR";
-
 // Back-compat aliases (used by the hero / final CTA "buy" buttons).
 export const PAYHIP_URL = PAYHIP_URL_BUNDLE;
 export const PAYHIP_BUNDLE_URL = PAYHIP_URL_BUNDLE;
@@ -26,11 +22,9 @@ export const PAYHIP_BUNDLE_URL = PAYHIP_URL_BUNDLE;
  */
 export const CHECKOUT_MODE: "whop" | "payhip" = "whop";
 
-/** Resolved destinations, honouring CHECKOUT_MODE. */
+/** Resolved checkout destination, honouring CHECKOUT_MODE. */
 export const CHECKOUT_URL =
   CHECKOUT_MODE === "whop" ? "/checkout" : PAYHIP_URL_BUNDLE;
-export const CHECKOUT_URL_PLANNER =
-  CHECKOUT_MODE === "whop" ? "/checkout" : PAYHIP_URL_PLANNER;
 
 // ── Whop embedded checkout (/checkout) ───────────────────────
 export const WHOP_PLAN_ID = "plan_4NxI8kuqbe6FS";
@@ -78,35 +72,30 @@ export const PRODUCT = {
 };
 
 /**
- * Two-tier pricing for the upsell section.
- * TODO: set the real planner-only price. The bundle is the live $9 product.
- * `compareAt` is what the pieces cost separately (planner $7 + stickers $7)
- * and drives the strikethrough + savings badge — keep it honest.
+ * The single product on sale: the complete bundle.
+ * (The planner is not sold separately.)
  */
-export const TIERS = {
-  planner: {
-    label: "Planner Only",
-    price: 7,
-    blurb: "The 21-page undated ADHD planner PDF (US Letter + A4).",
-    url: CHECKOUT_URL_PLANNER,
-    features: [
-      "21-page undated ADHD planner PDF",
-      "US Letter + A4 print sizes",
-      "Reprint forever · start any day",
-    ],
-  },
-  bundle: {
-    label: "Complete Bundle",
-    price: 9,
-    compareAt: 14,
-    blurb:
-      "The planner plus the full digital sticker system — the whole calm-brain kit.",
-    url: CHECKOUT_URL,
-    features: [
-      "Everything in Planner Only",
-      "63 digital stickers (transparent PNGs)",
-      "6-page GoodNotes sticker book",
-      "Installation guide (GoodNotes + Notability)",
-    ],
-  },
+export const OFFER = {
+  label: "The Complete Bundle",
+  price: PRODUCT.price,
+  /**
+   * Optional "was" price for a strikethrough + savings badge.
+   *
+   * Left null on purpose: with nothing sold separately any higher number
+   * would be an invented reference price, which is deceptive (and against
+   * FTC pricing guidance). Only set this if the bundle is genuinely sold
+   * at that price normally — e.g. a real launch discount.
+   */
+  compareAt: null as number | null,
+  blurb:
+    "Planner and sticker system together — the whole calm-brain kit, in one instant download.",
+  url: CHECKOUT_URL,
+  features: [
+    "21-page undated ADHD planner PDF (US Letter + A4)",
+    "63 digital stickers (transparent PNGs)",
+    "6-page GoodNotes sticker book",
+    "Installation guide (GoodNotes + Notability)",
+    "Print at home or use on iPad",
+    "Reprint forever · start any day",
+  ],
 };
