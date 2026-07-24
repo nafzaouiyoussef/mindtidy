@@ -1,7 +1,7 @@
 import BuyButton from "./BuyButton";
 import BrandSvg from "./BrandSvg";
 import Reveal from "./Reveal";
-import { PRODUCT } from "@/lib/config";
+import { PRICE_LABEL } from "@/lib/config";
 
 export default function Hero() {
   return (
@@ -45,7 +45,7 @@ export default function Hero() {
           <Reveal delay={300}>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
               <BuyButton>
-                Get the bundle — ${PRODUCT.price}
+                Get the bundle — {PRICE_LABEL}
               </BuyButton>
               <a href="#inside" className="btn-secondary">
                 See what&apos;s inside

@@ -1,7 +1,7 @@
 import Reveal from "./Reveal";
 import BuyButton from "./BuyButton";
 import BrandSvg from "./BrandSvg";
-import { PRODUCT } from "@/lib/config";
+import { PRODUCT, PRICE_LABEL } from "@/lib/config";
 
 export default function FinalCTA() {
   return (
@@ -31,7 +31,7 @@ export default function FinalCTA() {
 
           <div className="relative mt-9">
             <BuyButton className="!bg-white !text-sage-darker hover:!bg-cream">
-              Get the bundle — ${PRODUCT.price}
+              Get the bundle — {PRICE_LABEL}
             </BuyButton>
           </div>
 

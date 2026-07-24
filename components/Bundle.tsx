@@ -1,7 +1,7 @@
 import Reveal from "./Reveal";
 import BuyButton from "./BuyButton";
 import BrandSvg from "./BrandSvg";
-import { OFFER } from "@/lib/config";
+import { OFFER, PRICE_LABEL } from "@/lib/config";
 
 function Check({ className = "text-sage-light" }: { className?: string }) {
   return (
@@ -75,7 +75,7 @@ export default function Bundle() {
                       </span>
                     )}
                     <span className="font-heading text-6xl font-bold text-white">
-                      ${OFFER.price}
+                      {PRICE_LABEL}
                     </span>
                   </p>
                   <p className="mt-2 text-xs text-sage-light">
@@ -84,7 +84,7 @@ export default function Bundle() {
                 </div>
 
                 <BuyButton href={OFFER.url} className="w-full">
-                  Get the bundle — ${OFFER.price}
+                  Get the bundle — {PRICE_LABEL}
                 </BuyButton>
 
                 <p className="text-center text-xs text-sage-light">

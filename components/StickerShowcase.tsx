@@ -1,6 +1,6 @@
 import Reveal from "./Reveal";
 import BuyButton from "./BuyButton";
-import { PRODUCT } from "@/lib/config";
+import { PRICE_LABEL } from "@/lib/config";
 
 /**
  * New bundle section: a visual showcase of the 63-piece sticker system.
@@ -86,7 +86,7 @@ export default function StickerShowcase() {
         </Reveal>
 
         <Reveal className="mt-12 text-center">
-          <BuyButton>Get the bundle — ${PRODUCT.price}</BuyButton>
+          <BuyButton>Get the bundle — {PRICE_LABEL}</BuyButton>
         </Reveal>
       </div>
     </section>

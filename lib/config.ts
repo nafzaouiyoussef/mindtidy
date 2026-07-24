@@ -67,9 +67,15 @@ export const CONTACT_EMAIL = "hello@mindtidy.com";
 export const PRODUCT = {
   name: "MindTidy ADHD Planner + Sticker Bundle",
   shortName: "the MindTidy bundle",
-  price: 9,
+  price: 12.99,
   currency: "USD",
 };
+
+/**
+ * Display price, always with cents (e.g. "$12.99").
+ * Every CTA renders this so a price like 13 can't show up as "$13".
+ */
+export const PRICE_LABEL = `$${PRODUCT.price.toFixed(2)}`;
 
 /**
  * The single product on sale: the complete bundle.

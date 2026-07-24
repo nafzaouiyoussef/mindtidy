@@ -1,7 +1,7 @@
 import Reveal from "./Reveal";
 import BuyButton from "./BuyButton";
 import BrandSvg from "./BrandSvg";
-import { PRODUCT } from "@/lib/config";
+import { PRODUCT, PRICE_LABEL } from "@/lib/config";
 
 const PLANNER_PAGES = [
   {
@@ -177,7 +177,7 @@ export default function WhatsInside() {
 
         <Reveal className="mt-12 text-center">
           <BuyButton>
-            Get the bundle — ${PRODUCT.price}
+            Get the bundle — {PRICE_LABEL}
           </BuyButton>
         </Reveal>
       </div>
