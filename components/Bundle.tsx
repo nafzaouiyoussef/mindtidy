@@ -52,14 +52,13 @@ export default function Bundle() {
                   </li>
                 ))}
               </ul>
-              <a
+              <BuyButton
                 href={planner.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary mt-8 w-full"
+                variant="secondary"
+                className="mt-8 w-full"
               >
                 Get the planner — ${planner.price}
-              </a>
+              </BuyButton>
             </div>
           </Reveal>
 

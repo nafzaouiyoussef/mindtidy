@@ -16,6 +16,22 @@ export const PAYHIP_URL_PLANNER = "https://payhip.com/b/g1mcR";
 export const PAYHIP_URL = PAYHIP_URL_BUNDLE;
 export const PAYHIP_BUNDLE_URL = PAYHIP_URL_BUNDLE;
 
+/**
+ * ⚡ Which checkout every buy button on the site uses.
+ *
+ *   "whop"   → the embedded /checkout page (Whop)
+ *   "payhip" → external Payhip links
+ *
+ * Flip this single value to switch the whole site either way.
+ */
+export const CHECKOUT_MODE: "whop" | "payhip" = "whop";
+
+/** Resolved destinations, honouring CHECKOUT_MODE. */
+export const CHECKOUT_URL =
+  CHECKOUT_MODE === "whop" ? "/checkout" : PAYHIP_URL_BUNDLE;
+export const CHECKOUT_URL_PLANNER =
+  CHECKOUT_MODE === "whop" ? "/checkout" : PAYHIP_URL_PLANNER;
+
 // ── Whop embedded checkout (/checkout) ───────────────────────
 export const WHOP_PLAN_ID = "plan_4NxI8kuqbe6FS";
 
@@ -72,7 +88,7 @@ export const TIERS = {
     label: "Planner Only",
     price: 7,
     blurb: "The 21-page undated ADHD planner PDF (US Letter + A4).",
-    url: PAYHIP_URL_PLANNER,
+    url: CHECKOUT_URL_PLANNER,
     features: [
       "21-page undated ADHD planner PDF",
       "US Letter + A4 print sizes",
@@ -85,7 +101,7 @@ export const TIERS = {
     compareAt: 14,
     blurb:
       "The planner plus the full digital sticker system — the whole calm-brain kit.",
-    url: PAYHIP_URL_BUNDLE,
+    url: CHECKOUT_URL,
     features: [
       "Everything in Planner Only",
       "63 digital stickers (transparent PNGs)",

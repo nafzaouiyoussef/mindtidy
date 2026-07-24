@@ -1,4 +1,4 @@
-import { PAYHIP_URL } from "@/lib/config";
+import { CHECKOUT_URL } from "@/lib/config";
 import type { ReactNode } from "react";
 
 type BuyButtonProps = {
@@ -9,20 +9,25 @@ type BuyButtonProps = {
 };
 
 /**
- * Every purchase CTA on the site renders through this component,
- * so the checkout destination lives in exactly one place (lib/config.ts).
+ * Every purchase CTA on the site renders through this component, so the
+ * checkout destination lives in exactly one place (CHECKOUT_MODE in
+ * lib/config.ts — "whop" uses the internal /checkout page, "payhip" uses
+ * external Payhip links).
  */
 export default function BuyButton({
   children = "Get the planner",
-  href = PAYHIP_URL,
+  href = CHECKOUT_URL,
   variant = "primary",
   className = "",
 }: BuyButtonProps) {
+  // Only external links open in a new tab; the internal /checkout page
+  // should navigate in place.
+  const isExternal = /^https?:\/\//.test(href);
+
   return (
     <a
       href={href}
-      target="_blank"
-      rel="noopener noreferrer"
+      {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       className={`${variant === "primary" ? "btn-primary" : "btn-secondary"} ${className}`}
     >
       {children}
