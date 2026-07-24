@@ -26,6 +26,9 @@ export const CHECKOUT_MODE: "whop" | "payhip" = "whop";
 export const CHECKOUT_URL =
   CHECKOUT_MODE === "whop" ? "/checkout" : PAYHIP_URL_BUNDLE;
 
+/** Where buyers land after a successful purchase. */
+export const THANK_YOU_PATH = "/thank-you";
+
 // ── Whop embedded checkout (/checkout) ───────────────────────
 export const WHOP_PLAN_ID = "plan_4NxI8kuqbe6FS";
 
