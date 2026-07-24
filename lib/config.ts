@@ -16,6 +16,40 @@ export const PAYHIP_URL_PLANNER = "https://payhip.com/b/g1mcR";
 export const PAYHIP_URL = PAYHIP_URL_BUNDLE;
 export const PAYHIP_BUNDLE_URL = PAYHIP_URL_BUNDLE;
 
+// ── Whop embedded checkout (/checkout) ───────────────────────
+export const WHOP_PLAN_ID = "plan_4NxI8kuqbe6FS";
+
+/**
+ * Whop's sandbox is a SEPARATE environment with its own plans — the
+ * production plan id above does not exist there (the embed 404s).
+ *
+ * To test with fake cards: create a plan in the Whop sandbox dashboard and
+ * paste its id here. Sandbox then turns on automatically in `npm run dev`.
+ * Leave empty and the dev checkout falls back to the real (production) form.
+ */
+export const WHOP_PLAN_ID_SANDBOX = "";
+
+// Accepts any hex ("#D9A48F" = brand terracotta) or a Whop named
+// palette value. Currently the blue from the Whop docs example.
+export const WHOP_ACCENT_COLOR = "#3358d4";
+
+/**
+ * "sandbox" = test mode: no real money moves and you can pay with Stripe
+ * test cards (e.g. 4242 4242 4242 4242, any future expiry, any CVC).
+ *
+ * Defaults to sandbox during `npm run dev` and production for a real build,
+ * so test mode can't accidentally ship. Override with NEXT_PUBLIC_WHOP_ENV
+ * (e.g. set it to "sandbox" on a staging deploy).
+ */
+export const WHOP_ENVIRONMENT: "production" | "sandbox" =
+  process.env.NEXT_PUBLIC_WHOP_ENV === "sandbox"
+    ? "sandbox"
+    : process.env.NEXT_PUBLIC_WHOP_ENV === "production"
+      ? "production"
+      : process.env.NODE_ENV === "production"
+        ? "production"
+        : "sandbox";
+
 export const SITE_URL = "https://mindtidy.com";
 export const SITE_NAME = "MindTidy";
 export const CONTACT_EMAIL = "hello@mindtidy.com";
