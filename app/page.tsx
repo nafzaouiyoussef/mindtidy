@@ -9,7 +9,7 @@ import FAQ from "@/components/FAQ";
 import { FAQ_ITEMS } from "@/lib/faq";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
-import { SITE_URL, SITE_NAME, PRODUCT, PAYHIP_URL } from "@/lib/config";
+import { SITE_URL, SITE_NAME, PRODUCT, CHECKOUT_URL } from "@/lib/config";
 
 /** Product + FAQ structured data for rich search results. */
 function StructuredData() {
@@ -27,7 +27,11 @@ function StructuredData() {
         price: PRODUCT.price.toFixed(2),
         priceCurrency: PRODUCT.currency,
         availability: "https://schema.org/InStock",
-        url: PAYHIP_URL,
+        // Buyers/search engines land on our own checkout, not a raw
+        // provider link. Relative CHECKOUT_URL is resolved against SITE_URL.
+        url: CHECKOUT_URL.startsWith("http")
+          ? CHECKOUT_URL
+          : `${SITE_URL}${CHECKOUT_URL}`,
       },
     },
     {

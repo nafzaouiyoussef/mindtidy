@@ -63,9 +63,16 @@ export const WHOP_ENVIRONMENT: "production" | "sandbox" =
         ? "production"
         : "sandbox";
 
-export const SITE_URL = "https://mindtidy.com";
+// Canonical origin — the www host you gave. Whatever you deploy MUST
+// redirect the apex (mindtidy.shop) to this www host (or change this to the
+// apex and redirect the other way) so there's exactly one canonical URL.
+export const SITE_URL = "https://www.mindtidy.shop";
 export const SITE_NAME = "MindTidy";
-export const CONTACT_EMAIL = "hello@mindtidy.com";
+
+// TODO: set up email at the new domain (most registrars offer free
+// forwarding for hello@mindtidy.shop → your inbox), or swap in whatever
+// address you actually read. Shown on the site and in support copy.
+export const CONTACT_EMAIL = "hello@mindtidy.shop";
 
 export const PRODUCT = {
   name: "MindTidy ADHD Planner + Sticker Bundle",
