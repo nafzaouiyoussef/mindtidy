@@ -69,6 +69,11 @@ export const WHOP_ENVIRONMENT: "production" | "sandbox" =
 export const SITE_URL = "https://www.mindtidy.shop";
 export const SITE_NAME = "MindTidy";
 
+// Meta (Facebook) Pixel — public id, safe client-side. Reads the env var,
+// with the known id as a fallback so tracking works even if it's unset.
+export const META_PIXEL_ID =
+  process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "28174613758831180";
+
 // TODO: set up email at the new domain (most registrars offer free
 // forwarding for hello@mindtidy.shop → your inbox), or swap in whatever
 // address you actually read. Shown on the site and in support copy.

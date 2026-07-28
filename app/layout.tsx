@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Quicksand, Inter } from "next/font/google";
 import "./globals.css";
+import MetaPixel from "@/components/MetaPixel";
 import { SITE_URL, SITE_NAME, PRODUCT } from "@/lib/config";
 
 const quicksand = Quicksand({
@@ -62,7 +63,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${quicksand.variable} ${inter.variable}`}>
-      <body>{children}</body>
+      <body>
+        <MetaPixel />
+        {children}
+      </body>
     </html>
   );
 }

@@ -1,4 +1,7 @@
-import { CHECKOUT_URL } from "@/lib/config";
+"use client";
+
+import { CHECKOUT_URL, PRODUCT } from "@/lib/config";
+import { trackMetaEvent } from "@/lib/meta-pixel";
 import type { ReactNode } from "react";
 
 type BuyButtonProps = {
@@ -24,9 +27,21 @@ export default function BuyButton({
   // should navigate in place.
   const isExternal = /^https?:\/\//.test(href);
 
+  // A buy button always opens checkout → fire Meta Pixel InitiateCheckout.
+  const handleClick = () => {
+    trackMetaEvent("InitiateCheckout", {
+      content_name: PRODUCT.name,
+      content_type: "product",
+      value: PRODUCT.price,
+      currency: PRODUCT.currency,
+      num_items: 1,
+    });
+  };
+
   return (
     <a
       href={href}
+      onClick={handleClick}
       {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       className={`${variant === "primary" ? "btn-primary" : "btn-secondary"} ${className}`}
     >

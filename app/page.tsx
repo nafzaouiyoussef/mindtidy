@@ -9,6 +9,7 @@ import FAQ from "@/components/FAQ";
 import { FAQ_ITEMS } from "@/lib/faq";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
+import MetaViewContent from "@/components/MetaViewContent";
 import { SITE_URL, SITE_NAME, PRODUCT, CHECKOUT_URL } from "@/lib/config";
 
 /** Product + FAQ structured data for rich search results. */
@@ -57,6 +58,8 @@ export default function HomePage() {
   return (
     <>
       <StructuredData />
+      {/* Fires Meta Pixel ViewContent when the pricing section is seen. */}
+      <MetaViewContent targetId="pricing" />
       <Header />
       <main>
         <Hero />
