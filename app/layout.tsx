@@ -3,6 +3,7 @@ import { Quicksand, Inter } from "next/font/google";
 import "./globals.css";
 import MetaPixel from "@/components/MetaPixel";
 import { SITE_URL, SITE_NAME, PRODUCT } from "@/lib/config";
+import { Analytics } from "@vercel/analytics/next";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -66,6 +67,7 @@ export default function RootLayout({
       <body>
         <MetaPixel />
         {children}
+        <Analytics />
       </body>
     </html>
   );
