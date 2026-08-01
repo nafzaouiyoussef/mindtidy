@@ -82,41 +82,53 @@ export const CONTACT_EMAIL = "hello@mindtidy.shop";
 export const PRODUCT = {
   name: "MindTidy ADHD Planner + Sticker Bundle",
   shortName: "the MindTidy bundle",
-  price: 12.99,
+  // The headline product is the bundle; this drives the CTAs + JSON-LD.
+  price: 17,
   currency: "USD",
 };
 
-/**
- * Display price, always with cents (e.g. "$12.99").
- * Every CTA renders this so a price like 13 can't show up as "$13".
- */
-export const PRICE_LABEL = `$${PRODUCT.price.toFixed(2)}`;
+/** Format a price: whole dollars show as "$17", otherwise "$17.50". */
+export const formatPrice = (n: number) =>
+  Number.isInteger(n) ? `$${n}` : `$${n.toFixed(2)}`;
+
+/** The bundle price, used by every "Get the bundle" CTA. */
+export const PRICE_LABEL = formatPrice(PRODUCT.price);
 
 /**
- * The single product on sale: the complete bundle.
- * (The planner is not sold separately.)
+ * Two-tier pricing. The bundle is the hero offer; the planner is a
+ * lower-priced entry option.
+ *
+ * ⚠️ Both tiers currently point at the SAME Whop checkout (one plan). The
+ * planner tier needs its OWN Whop plan or buyers picking "Planner Only"
+ * will be charged the bundle amount. Create a $9 plan in Whop and set
+ * TIERS.planner.url to its /checkout equivalent (or a plan-specific route).
  */
-export const OFFER = {
-  label: "The Complete Bundle",
-  price: PRODUCT.price,
-  /**
-   * Optional "was" price for a strikethrough + savings badge.
-   *
-   * Left null on purpose: with nothing sold separately any higher number
-   * would be an invented reference price, which is deceptive (and against
-   * FTC pricing guidance). Only set this if the bundle is genuinely sold
-   * at that price normally — e.g. a real launch discount.
-   */
-  compareAt: null as number | null,
-  blurb:
-    "Planner and sticker system together — the whole calm-brain kit, in one instant download.",
-  url: CHECKOUT_URL,
-  features: [
-    "21-page undated ADHD planner PDF (US Letter + A4)",
-    "63 digital stickers (transparent PNGs)",
-    "6-page GoodNotes sticker book",
-    "Installation guide (GoodNotes + Notability)",
-    "Print at home or use on iPad",
-    "Reprint forever · start any day",
-  ],
+export const TIERS = {
+  bundle: {
+    label: "The Complete Bundle",
+    price: 17,
+    compareAt: 29, // anchor / "Launch price" strikethrough
+    badge: "Launch price",
+    mostPopular: true,
+    blurb: "Planner + the full sticker system — the whole calm-brain kit.",
+    url: CHECKOUT_URL,
+    features: [
+      "21-page undated ADHD planner PDF",
+      "63 digital stickers (transparent PNGs)",
+      "6-page GoodNotes sticker book",
+      "Installation guide (GoodNotes 6/5 + Notability)",
+    ],
+  },
+  planner: {
+    label: "Planner Only",
+    price: 9,
+    blurb: "Just the 21-page undated ADHD planner PDF.",
+    // TODO: give this its own Whop plan — see note above.
+    url: CHECKOUT_URL,
+    features: [
+      "21-page undated ADHD planner PDF",
+      "US Letter · print or GoodNotes / Notability",
+      "Reprint forever · start any day",
+    ],
+  },
 };

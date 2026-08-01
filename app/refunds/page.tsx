@@ -11,13 +11,12 @@ export const metadata: Metadata = {
 export default function RefundsPage() {
   return (
     <LegalPage title="Refund Policy" updated="July 19, 2026">
-      <LegalSection heading="The 14-day guarantee">
+      <LegalSection heading="The 14-day, no-questions-asked guarantee">
         <p>
-          We know buying a planner is an act of hope — especially if a drawer
-          full of abandoned ones says otherwise. So the deal is simple: if a{" "}
-          {SITE_NAME} product doesn&apos;t fit the way your brain works, email
-          us within <strong>14 days of purchase</strong> and we&apos;ll refund
-          you in full.
+          Try it for 14 days. If a {SITE_NAME} product doesn&apos;t work for
+          the way your brain works, email us within{" "}
+          <strong>14 days of purchase</strong> and we&apos;ll refund you in
+          full — no questions asked.
         </p>
         <p>
           No forms. No “but did you really try it?” interrogation. One email
@@ -34,7 +33,7 @@ export default function RefundsPage() {
             </a>{" "}
             from the address you used at checkout.
           </li>
-          <li>Include your order number or the email receipt from Payhip.</li>
+          <li>Include your order number or the email receipt from Whop.</li>
           <li>
             Optionally, tell us what didn&apos;t work — it genuinely helps us
             make the planner better, but it&apos;s not required.
@@ -46,14 +45,13 @@ export default function RefundsPage() {
         </p>
       </LegalSection>
 
-      <LegalSection heading="A note on digital products">
+      <LegalSection heading="Keep the files">
         <p>
-          Because our products are instant downloads, we can&apos;t take the
-          files back — and we don&apos;t ask you to pretend otherwise. If you
-          receive a refund, we simply trust you to delete the files and stop
-          using them. This guarantee exists so you can buy without anxiety; we
-          reserve the right to decline refunds in cases of clear abuse (for
-          example, repeated purchase-and-refund of the same product).
+          Because everything is an instant digital download, you keep the
+          files even after a refund — we won&apos;t ask you to delete
+          anything. The guarantee exists so you can buy without anxiety. We
+          only reserve the right to decline refunds in cases of clear abuse
+          (for example, repeated purchase-and-refund of the same product).
         </p>
       </LegalSection>
 

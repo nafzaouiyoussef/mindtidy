@@ -1,5 +1,5 @@
+import Image from "next/image";
 import Reveal from "./Reveal";
-import BrandSvg from "./BrandSvg";
 
 const PROBLEMS = [
   {
@@ -96,12 +96,19 @@ export default function ProblemSolution() {
           </Reveal>
         </div>
 
-        <Reveal delay={100} className="mx-auto mt-14 max-w-3xl">
-          <BrandSvg
-            name="features"
-            label="Calm your mind: every page designed around how ADHD brains actually work — brain dump first, only 3 priorities, a done list that celebrates progress, time anchors for time blindness, focus sprint pages with built-in breaks, and undated pages so you can skip days guilt-free."
-            className="overflow-hidden rounded-4xl shadow-soft"
+        <Reveal delay={100} className="mt-14 flex flex-col items-center">
+          <Image
+            src="/products/page-16.png"
+            alt="A real monthly page from the MindTidy ADHD planner — undated and calm"
+            width={1275}
+            height={1650}
+            loading="lazy"
+            sizes="(max-width: 640px) 240px, 300px"
+            className="w-60 rounded-3xl border border-cream-dark shadow-soft sm:w-72"
           />
+          <p className="mt-4 text-center text-sm italic text-slate-muted">
+            Every page is undated — start any day, skip a week, reprint forever.
+          </p>
         </Reveal>
       </div>
     </section>

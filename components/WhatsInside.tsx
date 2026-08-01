@@ -1,7 +1,17 @@
+import Image from "next/image";
 import Reveal from "./Reveal";
 import BuyButton from "./BuyButton";
-import BrandSvg from "./BrandSvg";
 import { PRODUCT, PRICE_LABEL } from "@/lib/config";
+
+/** Real planner pages shown in the swipeable gallery. */
+const GALLERY = [
+  { src: "/products/page-05.png", caption: "Daily page — only 3 priorities" },
+  { src: "/products/page-11.png", caption: "Dopamine Menu" },
+  { src: "/products/page-07.png", caption: "Shrink the Task" },
+  { src: "/products/page-10.png", caption: "Shame-free Habit Builder" },
+  { src: "/products/page-12.png", caption: "For the days you can't start" },
+  { src: "/products/page-08.png", caption: "Weekly overview" },
+];
 
 const PLANNER_PAGES = [
   {
@@ -96,12 +106,38 @@ export default function WhatsInside() {
           </p>
         </Reveal>
 
-        <Reveal delay={100} className="mx-auto mt-12 max-w-3xl">
-          <BrandSvg
-            name="whats-inside"
-            label="What's inside: Brain Dump, Daily Reset, Focus Sprint, and Weekly Reset pages, plus Someday and Waiting-On lists."
-            className="overflow-hidden rounded-4xl shadow-soft"
-          />
+        {/* ── Swipeable gallery of real pages ─────────────────── */}
+        <Reveal delay={100} className="mt-12">
+          <ul
+            className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 sm:mx-0 sm:px-0 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            aria-label="Real pages from the planner"
+          >
+            {GALLERY.map((page, i) => (
+              <li
+                key={page.src}
+                className="w-56 shrink-0 snap-center sm:w-64"
+              >
+                <div className="overflow-hidden rounded-3xl border border-cream-dark bg-white shadow-soft">
+                  <Image
+                    src={page.src}
+                    alt={`${page.caption} — an actual page from the MindTidy ADHD planner`}
+                    width={1275}
+                    height={1650}
+                    loading={i === 0 ? "eager" : "lazy"}
+                    sizes="(max-width: 640px) 224px, 256px"
+                    className="h-auto w-full"
+                  />
+                </div>
+                <p className="mt-3 px-1 text-center text-sm font-medium text-slate">
+                  {page.caption}
+                </p>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-4 text-center text-sm italic text-slate-muted">
+            Actual pages from the planner — what you see is exactly what you
+            download.
+          </p>
         </Reveal>
 
         {/* ── Part 1: The Planner ─────────────────────────────── */}

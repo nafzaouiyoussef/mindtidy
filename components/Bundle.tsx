@@ -1,9 +1,8 @@
 import Reveal from "./Reveal";
 import BuyButton from "./BuyButton";
-import BrandSvg from "./BrandSvg";
-import { OFFER, PRICE_LABEL } from "@/lib/config";
+import { TIERS, formatPrice } from "@/lib/config";
 
-function Check({ className = "text-sage-light" }: { className?: string }) {
+function Check({ className = "text-sage-dark" }: { className?: string }) {
   return (
     <svg className={`h-5 w-5 shrink-0 ${className}`} viewBox="0 0 20 20" fill="none" aria-hidden="true">
       <path d="M4 10.5l4 4 8-9" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -11,89 +10,113 @@ function Check({ className = "text-sage-light" }: { className?: string }) {
   );
 }
 
+/** 🔒 Secure checkout · ⚡ Instant download · 💛 14-day money-back guarantee */
+function TrustRow({ className = "" }: { className?: string }) {
+  return (
+    <p className={`text-center text-xs leading-relaxed ${className}`}>
+      🔒 Secure checkout&nbsp;·&nbsp;⚡ Instant download&nbsp;·&nbsp;💛 14-day
+      money-back guarantee
+    </p>
+  );
+}
+
 export default function Bundle() {
+  const { bundle, planner } = TIERS;
+
   return (
     <section id="pricing" className="scroll-mt-24 px-5 py-20 sm:px-8 sm:py-28">
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-4xl">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="font-heading text-sm font-bold uppercase tracking-[0.2em] text-sage-dark">
             Pricing
           </p>
           <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-slate sm:text-4xl">
-            Everything, in one download
+            Pick your calm
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-slate-light">
-            One bundle, one price. No subscription, no upsell emails — you own
-            the files forever.
+            One-time purchase either way — no subscription, no upsell emails.
+            You own the files forever.
           </p>
         </Reveal>
 
-        <Reveal delay={100} className="mt-14">
-          <div className="overflow-hidden rounded-4xl bg-slate shadow-lift">
-            <div className="grid lg:grid-cols-5">
-              {/* Left: what's included */}
-              <div className="p-8 sm:p-12 lg:col-span-3">
-                <h3 className="font-heading text-2xl font-bold text-white sm:text-3xl">
-                  {OFFER.label}
-                </h3>
-                <p className="mt-3 leading-relaxed text-sage-light">
-                  {OFFER.blurb}
-                </p>
-
-                <ul className="mt-8 space-y-3">
-                  {OFFER.features.map((feature) => (
-                    <li
-                      key={feature}
-                      className="flex items-center gap-3 border-b border-white/10 pb-3 text-sm text-white"
-                    >
-                      <Check />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
+        <div className="mt-14 grid items-stretch gap-6 lg:grid-cols-2">
+          {/* ── Complete Bundle (most popular) ───────────────── */}
+          <Reveal className="order-1 flex">
+            <div className="relative flex w-full flex-col overflow-hidden rounded-4xl bg-slate p-8 shadow-lift sm:p-10">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-terracotta px-3.5 py-1 font-heading text-xs font-bold uppercase tracking-wider text-white">
+                  ★ Most popular
+                </span>
+                <span className="inline-flex items-center rounded-full bg-white/15 px-3.5 py-1 font-heading text-xs font-bold uppercase tracking-wider text-white">
+                  {bundle.badge}
+                </span>
               </div>
 
-              {/* Right: price + CTA */}
-              <div className="flex flex-col justify-center gap-6 bg-white/5 p-8 sm:p-12 lg:col-span-2">
-                <BrandSvg
-                  name="focus-kit"
-                  label="The MindTidy bundle: the planner surrounded by its companion pages — one instant download."
-                  className="overflow-hidden rounded-3xl"
-                />
+              <h3 className="mt-5 font-heading text-xl font-bold text-white">
+                {bundle.label}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-sage-light">
+                {bundle.blurb}
+              </p>
 
-                <div className="text-center">
-                  <p className="font-heading text-sm font-semibold text-sage-light">
-                    {OFFER.label}
-                  </p>
-                  <p className="mt-3 flex items-baseline justify-center gap-3">
-                    {OFFER.compareAt !== null && (
-                      <span
-                        className="text-lg text-sage-light line-through"
-                        aria-label={`Regular price $${OFFER.compareAt}`}
-                      >
-                        ${OFFER.compareAt}
-                      </span>
-                    )}
-                    <span className="font-heading text-6xl font-bold text-white">
-                      {PRICE_LABEL}
-                    </span>
-                  </p>
-                  <p className="mt-2 text-xs text-sage-light">
-                    One-time purchase · instant download
-                  </p>
-                </div>
+              <p className="mt-5 flex items-baseline gap-3">
+                <span
+                  className="text-xl text-sage-light line-through"
+                  aria-label={`Regular price ${formatPrice(bundle.compareAt)}`}
+                >
+                  {formatPrice(bundle.compareAt)}
+                </span>
+                <span className="font-heading text-6xl font-bold text-white">
+                  {formatPrice(bundle.price)}
+                </span>
+              </p>
 
-                <BuyButton href={OFFER.url} className="w-full">
-                  Get the bundle — {PRICE_LABEL}
-                </BuyButton>
+              <ul className="mt-7 flex-1 space-y-3">
+                {bundle.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-3 text-sm text-white">
+                    <Check className="text-sage-light" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
 
-                <p className="text-center text-xs text-sage-light">
-                  Instant download · 14-day money-back guarantee
-                </p>
-              </div>
+              <BuyButton href={bundle.url} className="mt-8 w-full">
+                Get the bundle — {formatPrice(bundle.price)}
+              </BuyButton>
+              <TrustRow className="mt-4 text-sage-light" />
             </div>
-          </div>
-        </Reveal>
+          </Reveal>
+
+          {/* ── Planner Only ─────────────────────────────────── */}
+          <Reveal delay={120} className="order-2 flex">
+            <div className="flex w-full flex-col rounded-4xl border border-cream-dark bg-white p-8 shadow-soft sm:p-10">
+              <h3 className="font-heading text-xl font-bold text-slate">
+                {planner.label}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-light">
+                {planner.blurb}
+              </p>
+
+              <p className="mt-5 font-heading text-6xl font-bold text-slate">
+                {formatPrice(planner.price)}
+              </p>
+
+              <ul className="mt-7 flex-1 space-y-3">
+                {planner.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-3 text-sm text-slate-light">
+                    <Check />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+
+              <BuyButton href={planner.url} variant="secondary" className="mt-8 w-full">
+                Get the planner — {formatPrice(planner.price)}
+              </BuyButton>
+              <TrustRow className="mt-4 text-slate-muted" />
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

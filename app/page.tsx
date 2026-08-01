@@ -3,13 +3,16 @@ import Hero from "@/components/Hero";
 import ProblemSolution from "@/components/ProblemSolution";
 import WhatsInside from "@/components/WhatsInside";
 import StickerShowcase from "@/components/StickerShowcase";
+import ExactlyWhatYouGet from "@/components/ExactlyWhatYouGet";
 import Testimonials from "@/components/Testimonials";
 import Bundle from "@/components/Bundle";
+import Guarantee from "@/components/Guarantee";
 import FAQ from "@/components/FAQ";
 import { FAQ_ITEMS } from "@/lib/faq";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import MetaViewContent from "@/components/MetaViewContent";
+import StickyBuyBar from "@/components/StickyBuyBar";
 import { SITE_URL, SITE_NAME, PRODUCT, CHECKOUT_URL } from "@/lib/config";
 
 /** Product + FAQ structured data for rich search results. */
@@ -66,12 +69,15 @@ export default function HomePage() {
         <ProblemSolution />
         <WhatsInside />
         <StickerShowcase />
+        <ExactlyWhatYouGet />
         <Testimonials />
         <Bundle />
+        <Guarantee />
         <FAQ />
         <FinalCTA />
       </main>
       <Footer />
+      <StickyBuyBar />
     </>
   );
 }

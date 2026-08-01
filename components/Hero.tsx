@@ -1,11 +1,11 @@
+import Image from "next/image";
 import BuyButton from "./BuyButton";
-import BrandSvg from "./BrandSvg";
 import Reveal from "./Reveal";
 import { PRICE_LABEL } from "@/lib/config";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden px-5 pb-20 pt-32 sm:px-8 sm:pt-40">
+    <section id="hero" className="relative overflow-hidden px-5 pb-20 pt-32 sm:px-8 sm:pt-40">
       {/* background accents */}
       <div className="pointer-events-none absolute -top-24 right-[-10%] h-96 w-96 rounded-full bg-sage-lighter opacity-60 blur-3xl" aria-hidden="true" />
       <div className="pointer-events-none absolute bottom-0 left-[-10%] h-72 w-72 rounded-full bg-terracotta-light opacity-30 blur-3xl" aria-hidden="true" />
@@ -88,10 +88,14 @@ export default function Hero() {
         <Reveal delay={200} className="lg:pl-6">
           <div className="relative mx-auto w-full max-w-md">
             <div className="absolute -inset-6 rounded-[3rem] bg-sage-lighter blur-2xl" aria-hidden="true" />
-            <BrandSvg
-              name="hero"
-              label="MindTidy Today's Reset planner page on a tablet: brain dump, just 3 things today, done list, and time anchors. Instant download."
-              className="relative z-10 rotate-2 overflow-hidden rounded-[2rem] shadow-lift transition-transform duration-500 hover:rotate-0"
+            <Image
+              src="/products/whats-inside-collage.png"
+              alt="A collage of real pages from the MindTidy ADHD planner and its digital stickers"
+              width={1200}
+              height={800}
+              priority
+              sizes="(max-width: 1024px) 88vw, 460px"
+              className="relative z-10 rotate-2 rounded-[2rem] shadow-lift transition-transform duration-500 hover:rotate-0"
             />
           </div>
         </Reveal>
