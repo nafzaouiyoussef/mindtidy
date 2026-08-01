@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Quicksand, Inter } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import MetaPixel from "@/components/MetaPixel";
 import { SITE_URL, SITE_NAME, PRODUCT } from "@/lib/config";
 
@@ -66,6 +68,10 @@ export default function RootLayout({
       <body>
         <MetaPixel />
         {children}
+        {/* Vercel Web Analytics (visitors, page views, referrers, devices) */}
+        <Analytics />
+        {/* Vercel Speed Insights (Core Web Vitals) */}
+        <SpeedInsights />
       </body>
     </html>
   );
