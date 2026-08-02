@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import Reveal from "./Reveal";
+import LeaveReview from "./LeaveReview";
 
 /**
  * NOTE: These are placeholder reviews for layout/design purposes.
@@ -125,6 +126,9 @@ export default function Testimonials() {
             </Reveal>
           ))}
         </ul>
+
+        {/* Local-only "leave a review" — saved in the visitor's own browser. */}
+        <LeaveReview />
       </div>
     </section>
   );
