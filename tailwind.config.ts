@@ -24,10 +24,12 @@ const config: Config = {
           light: "#5C6B64",
           muted: "#7A877F",
         },
+        // Terracotta — brand accent + primary CTA. Deepened from the brand
+        // guide's "soft" #D9A48F so buttons actually pop on the cream bg.
         terracotta: {
-          DEFAULT: "#D9A48F",
-          light: "#EAC8BA",
-          dark: "#C08265",
+          DEFAULT: "#C06B4A", // punchy CTA — was pastel #D9A48F
+          light: "#EAC8BA", // kept for soft chip backgrounds
+          dark: "#9E4F30", // hover / focus ring — was #C08265
         },
       },
       fontFamily: {

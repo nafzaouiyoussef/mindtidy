@@ -148,10 +148,6 @@ export default function LeaveReview() {
           <h3 className="font-heading text-xl font-bold text-slate">
             Share your experience
           </h3>
-          <p className="mt-1 text-sm leading-relaxed text-slate-muted">
-            Your review is saved to this browser only — it&apos;s a private
-            reminder for you, not a public post.
-          </p>
 
           <form onSubmit={submit} className="mt-5 space-y-4">
             <fieldset>
