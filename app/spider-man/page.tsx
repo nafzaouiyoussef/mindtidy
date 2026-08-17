@@ -192,49 +192,58 @@ export default function SpiderManPage() {
         </div>
       </section>
 
-      {/* ── Gallery: real pages ─────────────────────────────── */}
+      {/* ── Gallery: two curated preview pages ──────────────── */}
       <section className="px-5 py-16 sm:px-8 sm:py-24">
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-5xl">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="font-heading text-sm font-bold uppercase tracking-[0.2em] text-spider-blue">
-              Inside the PDF
+              A peek inside
             </p>
             <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-slate sm:text-4xl">
-              Every step, every photo.
+              Beautifully laid out. Easy to follow.
             </h2>
             <p className="mt-3 text-slate-light">
-              Actual pages from the pattern — swipe through to see exactly
-              what you get.
+              Two sample pages so you know what you&apos;re buying — the
+              round-by-round patterns and step photos are inside the PDF.
             </p>
           </Reveal>
 
-          <Reveal delay={100} className="mt-10">
-            <ul
-              className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 sm:mx-0 sm:px-0 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-              aria-label="Real pages from the pattern"
-            >
-              {GALLERY.map((page, i) => (
-                <li key={page.src} className="w-56 shrink-0 snap-center sm:w-64">
-                  <div className="overflow-hidden rounded-3xl border border-cream-dark bg-white shadow-soft">
-                    <Image
-                      src={page.src}
-                      alt={`${page.caption} — actual page from the ${SPIDER.name} pattern`}
-                      width={1075}
-                      height={1521}
-                      loading={i === 0 ? "eager" : "lazy"}
-                      sizes="(max-width: 640px) 224px, 256px"
-                      className="h-auto w-full"
-                    />
-                  </div>
-                  <p className="mt-3 px-1 text-center text-sm font-medium text-slate">
+          <ul className="mt-12 grid gap-6 sm:grid-cols-2">
+            {GALLERY.map((page, i) => (
+              <Reveal
+                as="li"
+                key={page.src}
+                delay={i * 120}
+                className="flex flex-col"
+              >
+                <div className="relative overflow-hidden rounded-3xl border border-cream-dark bg-white shadow-soft">
+                  <Image
+                    src={page.src}
+                    alt={`${page.caption} — sample page from the ${SPIDER.name} pattern`}
+                    width={1075}
+                    height={1521}
+                    loading="lazy"
+                    sizes="(max-width: 640px) 90vw, 400px"
+                    className="h-auto w-full"
+                  />
+                  <span className="pointer-events-none absolute right-3 top-3 rounded-full bg-spider-red/95 px-2.5 py-1 font-heading text-[10px] font-bold uppercase tracking-wider text-white shadow-soft">
+                    Sample
+                  </span>
+                </div>
+                <div className="mt-4 text-center">
+                  <p className="font-heading text-base font-bold text-slate">
                     {page.caption}
                   </p>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-4 text-center text-sm italic text-slate-muted">
-              12 pages total — this is a preview of 7. What you see is exactly
-              what you download.
+                  <p className="mt-1 text-sm text-slate-light">{page.hint}</p>
+                </div>
+              </Reveal>
+            ))}
+          </ul>
+
+          <Reveal delay={200} className="mt-10 text-center">
+            <p className="text-sm italic text-slate-muted">
+              10 more pages inside — the full round-by-round patterns, four
+              eye-style formulas, and the web-embroidery photo walk-through.
             </p>
           </Reveal>
         </div>

@@ -32,15 +32,29 @@ export const AT_A_GLANCE = [
   { label: "Approx. finished size", detail: "~7 cm / 3 in tall" },
 ];
 
-/** Real pages from the PDF used in the swipeable gallery. */
+/**
+ * Two preview pages shown on the landing page.
+ *
+ * Deliberately kept to TWO so buyers see the design quality without
+ * being able to reconstruct the pattern from screenshots. We pick pages
+ * that prove the pattern is thorough (materials + assembly walk-through)
+ * without leaking the actual round-by-round instructions.
+ *
+ * Pages we specifically DON'T show: 04 (head/body pattern),
+ * 05 (arms/legs), 06 (eye style formulas), 07-09 (web embroidery steps),
+ * 10 (white web pattern). Those are the paid content.
+ */
 export const GALLERY = [
-  { src: "/spider-man/page-02.jpg", caption: "Abbreviations & materials" },
-  { src: "/spider-man/page-04.jpg", caption: "Head & body — round by round" },
-  { src: "/spider-man/page-05.jpg", caption: "Arms & legs" },
-  { src: "/spider-man/page-06.jpg", caption: "Four eye styles to choose from" },
-  { src: "/spider-man/page-07.jpg", caption: "Embroidering the web — with photos" },
-  { src: "/spider-man/page-10.jpg", caption: "Crocheted white web" },
-  { src: "/spider-man/page-11.jpg", caption: "Assembly & retractable keychain" },
+  {
+    src: "/spider-man/page-02.jpg",
+    caption: "Materials & abbreviations",
+    hint: "Everything you'll need, spelled out.",
+  },
+  {
+    src: "/spider-man/page-11.jpg",
+    caption: "Assembly walk-through",
+    hint: "How the finished piece comes together.",
+  },
 ];
 
 /** Deliverables list — mirrors the ADHD "Exactly what you get". */
