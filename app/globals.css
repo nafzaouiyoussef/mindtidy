@@ -87,3 +87,8 @@ body {
 .btn-secondary {
   @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-sage bg-transparent px-8 py-[14px] font-heading text-base font-semibold text-sage-darker transition-all duration-300 hover:-translate-y-0.5 hover:bg-sage hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage active:translate-y-0;
 }
+
+/* ── Spider-Man product CTA (used only on /spider-man/*) ─────── */
+.btn-spider {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-spider-red px-8 py-4 font-heading text-base font-semibold text-white shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:bg-spider-red-dark hover:shadow-lift focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-spider-red-dark active:translate-y-0;
+}

@@ -10,16 +10,12 @@ import {
   THANK_YOU_PATH,
 } from "@/lib/config";
 
-// Only use sandbox when a sandbox plan actually exists, since the production
-// plan id doesn't resolve there — otherwise the embed would render a 404.
-const useSandbox = WHOP_ENVIRONMENT === "sandbox" && !!WHOP_PLAN_ID_SANDBOX;
-
 /**
  * Whop embedded checkout.
  *
  * The @whop/checkout package ships without a "use client" banner, so this
  * thin wrapper provides it — that's why the embed lives here rather than
- * directly in app/checkout/page.tsx (which stays a server component so it
+ * directly in the /checkout page (which stays a server component so it
  * can export metadata).
  *
  * After a successful purchase we send the buyer to our own thank-you page:
@@ -27,26 +23,40 @@ const useSandbox = WHOP_ENVIRONMENT === "sandbox" && !!WHOP_PLAN_ID_SANDBOX;
  * `onComplete` does the routing. `returnUrl` covers buyers who get bounced
  * out to an external payment provider (3-D Secure, PayPal) mid-flow.
  *
- * Plan id, accent colour and environment live in lib/config.ts.
+ * Multiple products share this component — pass the product's own
+ * `planId` and optional `returnPath` (defaults to /thank-you).
  */
-export default function CheckoutEmbed() {
+export default function CheckoutEmbed({
+  planId = WHOP_PLAN_ID,
+  returnPath = THANK_YOU_PATH,
+}: {
+  planId?: string;
+  returnPath?: string;
+}) {
   const router = useRouter();
+
+  // Only flip to sandbox when a sandbox id exists AND this call didn't pass
+  // a product-specific plan (sandbox is only wired for the main plan).
+  const useSandbox =
+    WHOP_ENVIRONMENT === "sandbox" &&
+    !!WHOP_PLAN_ID_SANDBOX &&
+    planId === WHOP_PLAN_ID;
 
   // Absolute URL, and only available in the browser.
   const returnUrl =
     typeof window === "undefined"
       ? undefined
-      : `${window.location.origin}${THANK_YOU_PATH}`;
+      : `${window.location.origin}${returnPath}`;
 
   return (
     <WhopCheckoutEmbed
-      planId={useSandbox ? WHOP_PLAN_ID_SANDBOX : WHOP_PLAN_ID}
+      planId={useSandbox ? WHOP_PLAN_ID_SANDBOX : planId}
       environment={useSandbox ? "sandbox" : "production"}
       themeOptions={{ accentColor: WHOP_ACCENT_COLOR }}
       theme="light"
       skipRedirect
       returnUrl={returnUrl}
-      onComplete={() => router.push(THANK_YOU_PATH)}
+      onComplete={() => router.push(returnPath)}
       fallback={
         <div className="flex min-h-[540px] items-center justify-center">
           <p className="flex items-center gap-3 text-sm font-medium text-slate-light">

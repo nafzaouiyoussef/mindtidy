@@ -30,7 +30,14 @@ export const CHECKOUT_URL =
 export const THANK_YOU_PATH = "/thank-you";
 
 // ── Whop embedded checkout (/checkout) ───────────────────────
+// Each product = one Whop plan + one landing page + one checkout route.
 export const WHOP_PLAN_ID = "plan_Mzpg2A0lB2xQe";
+
+// Second product: Mini Spider-Man Crochet Keychain pattern.
+// TODO: create a new Whop plan for this pattern and paste the id here.
+// Until then the /spider-man/checkout page will surface a "not configured"
+// message rather than silently charge the wrong plan.
+export const WHOP_PLAN_ID_SPIDER = "";
 
 /**
  * Whop's sandbox is a SEPARATE environment with its own plans — the

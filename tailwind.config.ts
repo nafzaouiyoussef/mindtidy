@@ -31,6 +31,16 @@ const config: Config = {
           light: "#EAC8BA", // kept for soft chip backgrounds
           dark: "#9E4F30", // hover / focus ring — was #C08265
         },
+        // Spider-Man palette — used only on /spider-man pages so that
+        // page has its own visual identity while still living on MindTidy.
+        spider: {
+          red: "#D62828",
+          "red-dark": "#B01F1F",
+          blue: "#1D3557",
+          "blue-dark": "#122540",
+          "red-tint": "#FBE5E5",
+          "blue-tint": "#DDE4EC",
+        },
       },
       fontFamily: {
         heading: ["var(--font-quicksand)", "sans-serif"],
