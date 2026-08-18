@@ -14,7 +14,7 @@ export const SPIDER = {
   tagline: "Stitch a tiny hero for your car mirror or bag.",
   subheadline:
     "A 12-page beginner-friendly crochet pattern for a mini amigurumi keychain with a hand-crocheted web. Instant PDF download.",
-  price: 4.99,
+  price: 2.99,
   compareAt: 9,
   currency: "USD",
   // Ad-friendly URL — short enough to type, memorable in a Facebook post.
