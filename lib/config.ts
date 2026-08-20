@@ -78,6 +78,12 @@ export const SITE_NAME = "MindTidy";
 export const META_PIXEL_ID =
   process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "1369300322058626";
 
+// Second Meta Pixel - scoped to the Spider-Man funnel (its own ad
+// account / campaign). Loaded only on the /spider-man landing page via
+// components/spider/SpiderMetaPixel.tsx, alongside the site-wide pixel.
+export const SPIDER_META_PIXEL_ID =
+  process.env.NEXT_PUBLIC_SPIDER_META_PIXEL_ID ?? "1706712277284392";
+
 // TODO: set up email at the new domain (most registrars offer free
 // forwarding for hello@mindtidy.shop → your inbox), or swap in whatever
 // address you actually read. Shown on the site and in support copy.

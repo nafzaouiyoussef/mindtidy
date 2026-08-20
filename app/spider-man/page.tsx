@@ -4,6 +4,7 @@ import SpiderShell from "@/components/spider/SpiderShell";
 import SpiderBuyButton from "@/components/spider/SpiderBuyButton";
 import Reveal from "@/components/Reveal";
 import MetaViewContent from "@/components/MetaViewContent";
+import SpiderMetaPixel from "@/components/spider/SpiderMetaPixel";
 import {
   SPIDER,
   AT_A_GLANCE,
@@ -84,6 +85,7 @@ export default function SpiderManPage() {
   return (
     <SpiderShell>
       <StructuredData />
+      <SpiderMetaPixel />
       <MetaViewContent targetId="spider-pricing" />
 
       {/* ── Hero ─────────────────────────────────────────────── */}
